@@ -9,7 +9,7 @@ AOS.init({
 });
 
 // ============================
-// NAVBAR SCROLL EFFECT
+// NAVBAR SCROLL
 // ============================
 const navbar = document.getElementById('navbar');
 
@@ -32,7 +32,6 @@ hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('active');
 });
 
-// Fermer le menu en cliquant sur un lien
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         hamburger.classList.remove('active');
@@ -41,7 +40,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 });
 
 // ============================
-// NAVIGATION ACTIVE LINK
+// ACTIVE LINK ON SCROLL
 // ============================
 const sections = document.querySelectorAll('section');
 const navItems = document.querySelectorAll('.nav-links a');
@@ -64,32 +63,82 @@ window.addEventListener('scroll', () => {
 });
 
 // ============================
-// GALERIE FILTER
+// COUNTDOWN
 // ============================
-const filterBtns = document.querySelectorAll('.filter-btn');
-const galerieItems = document.querySelectorAll('.galerie-item');
+function updateCountdown() {
+    const eventDate = new Date('2026-07-11T13:00:00').getTime();
+    const now = new Date().getTime();
+    const difference = eventDate - now;
 
-filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        // Active state
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+    if (difference > 0) {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-        const filter = btn.getAttribute('data-filter');
+        document.getElementById('days').textContent = days;
+        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+        document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+        document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+    } else {
+        document.getElementById('days').textContent = '0';
+        document.getElementById('hours').textContent = '00';
+        document.getElementById('minutes').textContent = '00';
+        document.getElementById('seconds').textContent = '00';
 
-        galerieItems.forEach(item => {
-            if (filter === 'all' || item.classList.contains(filter)) {
-                item.style.display = 'block';
-                item.style.animation = 'fadeIn 0.5s ease forwards';
-            } else {
-                item.style.display = 'none';
-            }
-        });
-    });
+        document.querySelector('.countdown-wrapper').innerHTML =
+            '<p style="color: var(--or); font-size: 1.5rem; font-family: Great Vibes, cursive;">🎉 C\'est aujourd\'hui ! Gloire à Dieu ! 🎉</p>';
+    }
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// ============================
+// CARTE LEAFLET
+// ============================
+const map = L.map('map').setView([6.358433413674288, 2.3773272037505113], 16);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap'
+}).addTo(map);
+
+const customIcon = L.divIcon({
+    html: '<div style="background: #c9a84c; color: #0a0a0a; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 3px solid white;"><i class="fas fa-church"></i></div>',
+    iconSize: [40, 40],
+    iconAnchor: [20, 40],
+    className: 'custom-marker'
 });
 
+L.marker([6.358433413674288, 2.3773272037505113], { icon: customIcon })
+    .addTo(map)
+    .bindPopup(`
+        <div style="text-align: center; font-family: 'Playfair Display', serif; padding: 10px;">
+            <h3 style="color: #1a3a6b; margin-bottom: 5px; font-size: 1.1rem;">
+                Résidences Saint Roger Annexe
+            </h3>
+            <p style="color: #6c757d; font-size: 0.85rem; margin-bottom: 8px;">
+                Fidjrossè, Cotonou, Bénin
+            </p>
+            <p style="color: #c9a84c; font-weight: bold; font-size: 0.9rem;">
+                ✝ Première Communion de Marie-Yann
+            </p>
+            <p style="color: #6c757d; font-size: 0.8rem;">
+                11 Juillet 2026 à 13h00
+            </p>
+            <a href="https://www.google.com/maps?q=6.358433413674288,2.3773272037505113"
+               target="_blank"
+               style="display: inline-block; margin-top: 8px; padding: 5px 15px;
+                      background: #1a3a6b; color: white; border-radius: 3px;
+                      font-size: 0.8rem; text-decoration: none;">
+                📍 Itinéraire
+            </a>
+        </div>
+    `)
+    .openPopup();
+
 // ============================
-// LIGHTBOX
+// LIGHTBOX GALERIE
 // ============================
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
@@ -101,7 +150,6 @@ const lightboxNext = document.getElementById('lightbox-next');
 let currentIndex = 0;
 let galerieImages = [];
 
-// Collecter les images et captions
 document.querySelectorAll('.galerie-item').forEach((item, index) => {
     const img = item.querySelector('img');
     const caption = item.querySelector('.galerie-overlay p');
@@ -145,7 +193,6 @@ lightboxNext.addEventListener('click', () => {
     updateLightbox();
 });
 
-// Fermer avec Echap
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeLightbox();
     if (e.key === 'ArrowLeft') {
@@ -158,85 +205,151 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Fermer en cliquant en dehors
 lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox) closeLightbox();
 });
 
 // ============================
-// FORMULAIRE DE CONTACT
+// FORMULAIRE RSVP
 // ============================
-const contactForm = document.getElementById('contact-form');
+const rsvpForm = document.getElementById('rsvp-form');
+const personnesGroup = document.getElementById('personnes-group');
 
-contactForm.addEventListener('submit', (e) => {
+// Cacher "nombre de personnes" si "non"
+document.querySelectorAll('input[name="presence"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+        if (radio.value === 'non') {
+            personnesGroup.style.display = 'none';
+        } else {
+            personnesGroup.style.display = 'block';
+        }
+    });
+});
+
+rsvpForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const relation = document.getElementById('relation').value;
-    const message = document.getElementById('message').value;
+    const nom = document.getElementById('rsvp-nom').value;
+    const tel = document.getElementById('rsvp-tel').value;
+    const email = document.getElementById('rsvp-email').value;
+    const relation = document.getElementById('rsvp-relation').value;
+    const presence = document.querySelector('input[name="presence"]:checked').value;
+    const personnes = document.getElementById('rsvp-personnes').value;
+    const messe = document.querySelector('input[name="messe"]').checked;
+    const reception = document.querySelector('input[name="reception"]').checked;
+    const message = document.getElementById('rsvp-message').value;
 
-    // Ajouter dynamiquement le message dans la section Réponses
-    const reponsesGrid = document.getElementById('reponses-grid');
-
-    const initials = name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
-
+    // Préparer le message WhatsApp
     const relationLabels = {
-        'membre': 'Membre de la famille',
+        'famille': 'Membre de la famille',
         'ami': 'Ami(e) de la famille',
-        'invite': 'Invité(e)',
-        'autre': 'Visiteur'
+        'paroisse': 'Paroissien(ne)',
+        'parrain': 'Parrain / Marraine',
+        'autre': 'Autre'
     };
 
-    const newCard = document.createElement('div');
-    newCard.className = 'reponse-card';
-    newCard.innerHTML = `
-        <div class="reponse-quote">
-            <i class="fas fa-quote-left"></i>
-        </div>
-        <p class="reponse-text">"${message}"</p>
-        <div class="reponse-author">
-            <div class="author-avatar">${initials}</div>
-            <div>
-                <strong>${name}</strong>
-                <span>${relationLabels[relation]}</span>
+    let whatsappMessage = `*🎉 RSVP - Première Communion Marie-Yann*\n\n`;
+    whatsappMessage += `👤 *Nom :* ${nom}\n`;
+    whatsappMessage += `📞 *Téléphone :* ${tel}\n`;
+    if (email) whatsappMessage += `📧 *Email :* ${email}\n`;
+    whatsappMessage += `❤️ *Lien :* ${relationLabels[relation]}\n`;
+    whatsappMessage += `\n*Présence :* ${presence === 'oui' ? '✅ OUI' : '❌ NON'}\n`;
+
+    if (presence === 'oui') {
+        whatsappMessage += `👥 *Nombre de personnes :* ${personnes}\n`;
+        whatsappMessage += `\n*Participation :*\n`;
+        if (messe) whatsappMessage += `⛪ Messe (13h00)\n`;
+        if (reception) whatsappMessage += `🥂 Réception (15h00)\n`;
+    }
+
+    if (message) {
+        whatsappMessage += `\n💌 *Message :*\n${message}\n`;
+    }
+
+    whatsappMessage += `\n_Envoyé via le site_`;
+
+    // Ajouter le message dans la section Messages
+    if (message.trim() !== '') {
+        const messagesGrid = document.getElementById('messages-grid');
+        const initials = nom.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
+
+        const newCard = document.createElement('div');
+        newCard.className = 'message-card';
+        newCard.style.animation = 'fadeIn 0.5s ease forwards';
+        newCard.innerHTML = `
+            <div class="message-quote">
+                <i class="fas fa-quote-left"></i>
             </div>
-        </div>
-    `;
+            <p class="message-text">"${message}"</p>
+            <div class="message-author">
+                <div class="author-avatar">${initials}</div>
+                <div>
+                    <strong>${nom}</strong>
+                    <span>${relationLabels[relation]}</span>
+                </div>
+            </div>
+        `;
 
-    reponsesGrid.insertBefore(newCard, reponsesGrid.firstChild);
-
-    // Reset form
-    contactForm.reset();
+        messagesGrid.insertBefore(newCard, messagesGrid.firstChild);
+    }
 
     // Notification
-    showNotification('Merci ' + name + ' ! Votre message a été ajouté au livre d\'or.');
+    if (presence === 'oui') {
+        showNotification(
+            `🎉 Merci ${nom} ! Votre présence est confirmée. Marie-Yann sera ravie de vous voir !`,
+            'success'
+        );
+    } else {
+        showNotification(
+            `Merci ${nom} d'avoir répondu. Nous vous gardons dans nos prières.`,
+            'info'
+        );
+    }
 
-    // Scroll vers les réponses
+    // Envoyer sur WhatsApp après 2 secondes
     setTimeout(() => {
-        document.getElementById('reponses').scrollIntoView({ behavior: 'smooth' });
-    }, 1000);
+        const whatsappUrl = `https://wa.me/2290196470098?text=${encodeURIComponent(whatsappMessage)}`;
+        if (confirm('Souhaitez-vous envoyer votre réponse par WhatsApp à la famille ?')) {
+            window.open(whatsappUrl, '_blank');
+        }
+    }, 2000);
+
+    // Reset
+    rsvpForm.reset();
+
+    // Scroll vers messages
+    if (message.trim() !== '') {
+        setTimeout(() => {
+            document.getElementById('messages').scrollIntoView({ behavior: 'smooth' });
+        }, 3000);
+    }
 });
 
 // ============================
 // NOTIFICATION
 // ============================
-function showNotification(message) {
+function showNotification(message, type = 'success') {
+    const colors = {
+        success: { bg: '#1a3a6b', border: '#c9a84c' },
+        info: { bg: '#6b1d2a', border: '#c9a84c' }
+    };
+
     const notification = document.createElement('div');
     notification.style.cssText = `
         position: fixed;
         top: 100px;
         right: 20px;
-        background: var(--bleu-roi, #1a3a6b);
+        background: ${colors[type].bg};
         color: white;
         padding: 20px 30px;
-        border-radius: 5px;
-        border-left: 4px solid #c9a84c;
+        border-radius: 10px;
+        border-left: 4px solid ${colors[type].border};
         box-shadow: 0 10px 40px rgba(0,0,0,0.3);
         z-index: 3000;
         animation: slideIn 0.5s ease forwards;
         font-family: 'Lato', sans-serif;
-        max-width: 350px;
+        max-width: 400px;
+        line-height: 1.6;
     `;
     notification.textContent = message;
     document.body.appendChild(notification);
@@ -244,10 +357,12 @@ function showNotification(message) {
     setTimeout(() => {
         notification.style.animation = 'slideOut 0.5s ease forwards';
         setTimeout(() => notification.remove(), 500);
-    }, 4000);
+    }, 5000);
 }
 
-// Ajouter les animations
+// ============================
+// ANIMATIONS CSS
+// ============================
 const style = document.createElement('style');
 style.textContent = `
     @keyframes slideIn {
@@ -259,14 +374,12 @@ style.textContent = `
         to { transform: translateX(100%); opacity: 0; }
     }
     @keyframes fadeIn {
-        from { opacity: 0; transform: scale(0.9); }
-        to { opacity: 1; transform: scale(1); }
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
     }
-    .nav-links a.active {
-        color: #c9a84c !important;
-    }
-    .nav-links a.active::after {
-        width: 100% !important;
+    .custom-marker {
+        background: none !important;
+        border: none !important;
     }
 `;
 document.head.appendChild(style);
@@ -289,28 +402,8 @@ backToTop.addEventListener('click', () => {
 });
 
 // ============================
-// COMPTEUR D'ANIMATION (Optionnel)
+// LOG
 // ============================
-function animateOnScroll() {
-    const elements = document.querySelectorAll('.membre-card, .reponse-card');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, { threshold: 0.1 });
-
-    elements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'all 0.6s ease';
-        observer.observe(el);
-    });
-}
-
-animateOnScroll();
-
-console.log('🏠 Site Famille DOSSOU-YOVO chargé avec succès !');
+console.log('✝ Site Première Communion de Marie-Yann DOSSOU-YOVO chargé !');
 console.log('💛 "Liés par l\'amour"');
+console.log('📅 11 Juillet 2026 — Paroisse Sainte Bernadette');
