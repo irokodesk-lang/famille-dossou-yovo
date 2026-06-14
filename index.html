@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Première Communion | Marie-Yann DOSSOU-YOVO</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <!-- Leaflet Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ======================== -->
+    <!-- NAVIGATION -->
+    <!-- ======================== -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">✝</span> DOSSOU-YOVO
+            </a>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#invitation">Invitation</a></li>
+                <li><a href="#evenement">L'Événement</a></li>
+                <li><a href="#programme">Programme</a></li>
+                <li><a href="#lieu">Le Lieu</a></li>
+                <li><a href="#galerie">Galerie</a></li>
+                <li><a href="#famille">Communiante</a></li>
+                <li><a href="#rsvp">RSVP</a></li>
+                <li><a href="#messages">Messages</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ======================== -->
+    <!-- HERO / ACCUEIL -->
+    <!-- ======================== -->
+    <section id="accueil" class="hero">
+        <div class="hero-overlay"></div>
+
+        <!-- Particules décoratives -->
+        <div class="particles">
+            <span class="particle">✝</span>
+            <span class="particle">✝</span>
+            <span class="particle">✝</span>
+            <span class="particle">✝</span>
+            <span class="particle">✝</span>
+            <span class="particle">✝</span>
+            <span class="particle">✝</span>
+            <span class="particle">✝</span>
+        </div>
+
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1500">
+            <div class="hero-cross">
+                <i class="fas fa-cross"></i>
+            </div>
+            <p class="hero-subtitle">Avec joie, la famille DOSSOU-YOVO vous invite à la</p>
+            <h1 class="hero-title">Première Communion</h1>
+            <div class="hero-divider">
+                <span class="diamond">✝</span>
+            </div>
+            <p class="hero-child-name">Marie-Yann DOSSOU-YOVO</p>
+            <div class="hero-date-badge">
+                <div class="date-item">
+                    <span class="date-number">11</span>
+                    <span class="date-label">Juillet</span>
+                </div>
+                <div class="date-separator"></div>
+                <div class="date-item">
+                    <span class="date-number">2026</span>
+                    <span class="date-label">à 13h00</span>
+                </div>
+            </div>
+            <p class="hero-church">
+                <i class="fas fa-church"></i> Paroisse Sainte Bernadette
+            </p>
+            <p class="hero-devise">"Liés par l'amour"</p>
+            <a href="#invitation" class="btn-hero">
+                <i class="fas fa-dove"></i> Découvrir l'invitation
+            </a>
+        </div>
+
+        <!-- Compte à rebours -->
+        <div class="countdown-wrapper">
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">0</span>
+                    <span class="countdown-label">Jours</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">0</span>
+                    <span class="countdown-label">Heures</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">0</span>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">0</span>
+                    <span class="countdown-label">Secondes</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- ======================== -->
+    <!-- INVITATION PERSONNELLE -->
+    <!-- ======================== -->
+    <section id="invitation" class="section-invitation">
+        <div class="container">
+            <div class="invitation-card" data-aos="fade-up">
+                <div class="invitation-ornament-top">
+                    <span class="ornament-line"></span>
+                    <i class="fas fa-cross"></i>
+                    <span class="ornament-line"></span>
+                </div>
+
+                <p class="invitation-greeting">Chers proches,</p>
+
+                <p class="invitation-text">
+                    C'est avec <span class="highlight">joie</span> et
+                    <span class="highlight">reconnaissance</span> que j'invite
+                    ma famille, mes amis et tous ceux qui me sont chers
+                    à partager un moment de fête.
+                </p>
+
+                <div class="invitation-signature">
+                    <p class="signature-name">Marie-Yann DOSSOU-YOVO</p>
+                    <p class="signature-event">✝ Première Communion ✝</p>
+                </div>
+
+                <div class="invitation-ornament-bottom">
+                    <span class="ornament-line"></span>
+                    <i class="fas fa-dove"></i>
+                    <span class="ornament-line"></span>
+                </div>
+
+                <a href="#rsvp" class="btn-invitation">
+                    <i class="fas fa-envelope-open-text"></i> Répondre à l'invitation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================== -->
+    <!-- L'ÉVÉNEMENT -->
+    <!-- ======================== -->
+    <section id="evenement" class="section-evenement">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <p class="section-label">Un moment de grâce</p>
+                <h2 class="section-title">La Première Communion</h2>
+                <div class="section-divider"><span class="diamond">✝</span></div>
+            </div>
+
+            <div class="evenement-grid">
+                <div class="evenement-image" data-aos="fade-right" data-aos-duration="1000">
+                    <img src="images/marie-yann.jpg" alt="Marie-Yann DOSSOU-YOVO">
+                    <div class="image-frame"></div>
+                    <div class="image-badge">
+                        <i class="fas fa-cross"></i>
+                    </div>
+                </div>
+                <div class="evenement-text" data-aos="fade-left" data-aos-duration="1000">
+                    <h3>Marie-Yann DOSSOU-YOVO</h3>
+                    <p class="evenement-intro">
+                        Ce sacrement marque une étape importante dans la vie spirituelle
+                        de Marie-Yann. C'est le jour où elle recevra pour la première fois
+                        le <strong>Corps du Christ</strong>, un moment sacré de foi, d'amour
+                        et de communion.
+                    </p>
+                    <p>
+                        Votre présence en ce jour béni serait pour nous la plus belle
+                        des bénédictions. Venez partager avec nous cette grâce divine.
+                    </p>
+
+                    <div class="evenement-details">
+                        <div class="detail-card">
+                            <i class="fas fa-calendar-alt"></i>
+                            <div>
+                                <strong>Date</strong>
+                                <p>Samedi 11 Juillet 2026</p>
+                            </div>
+                        </div>
+                        <div class="detail-card">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Heure</strong>
+                                <p>13h00 précises</p>
+                            </div>
+                        </div>
+                        <div class="detail-card">
+                            <i class="fas fa-church"></i>
+                            <div>
+                                <strong>Église</strong>
+                                <p>Paroisse Sainte Bernadette</p>
+                            </div>
+                        </div>
+                        <div class="detail-card">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Réception</strong>
+                                <p>Résidences Saint Roger Annexe, Fidjrossè</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================== -->
+    <!-- PROGRAMME -->
+    <!-- ======================== -->
+    <section id="programme" class="section-programme">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <p class="section-label">Déroulement de la journée</p>
+                <h2 class="section-title">Programme</h2>
+                <div class="section-divider"><span class="diamond">✝</span></div>
+            </div>
+
+            <div class="timeline">
+                <!-- Messe -->
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-dot">
+                        <i class="fas fa-church"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-time">13h00</div>
+                        <h4>Célébration Eucharistique</h4>
+                        <p>
+                            Messe solennelle de Première Communion à la
+                            <strong>Paroisse Sainte Bernadette</strong>.
+                            Marie-Yann recevra pour la première fois le
+                            Corps et le Sang du Christ.
+                        </p>
+                        <span class="timeline-tag">
+                            <i class="fas fa-pray"></i> Messe
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Séance photo -->
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-dot">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-time">14h30</div>
+                        <h4>Séance Photos</h4>
+                        <p>
+                            Photos souvenirs avec Marie-Yann, la famille
+                            et tous les invités devant l'église.
+                        </p>
+                        <span class="timeline-tag">
+                            <i class="fas fa-camera-retro"></i> Photos
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Réception -->
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-dot">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-time">15h00</div>
+                        <h4>Réception & Cocktail</h4>
+                        <p>
+                            Réception festive aux <strong>Résidences Saint Roger Annexe</strong>
+                            à Fidjrossè. Cocktail, buffet et moment de partage en famille.
+                        </p>
+                        <span class="timeline-tag">
+                            <i class="fas fa-glass-cheers"></i> Réception
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Animations -->
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-dot">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-time">16h30</div>
+                        <h4>Animations & Festivités</h4>
+                        <p>
+                            Musique, danses et animations pour célébrer
+                            ce beau jour avec joie et bonne humeur.
+                        </p>
+                        <span class="timeline-tag">
+                            <i class="fas fa-music"></i> Fête
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Gâteau -->
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-dot">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-time">17h30</div>
+                        <h4>Gâteau de Communion</h4>
+                        <p>
+                            Découpe du gâteau de Première Communion
+                            avec Marie-Yann entourée de sa famille.
+                        </p>
+                        <span class="timeline-tag">
+                            <i class="fas fa-birthday-cake"></i> Gâteau
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================== -->
+    <!-- LE LIEU -->
+    <!-- ======================== -->
+    <section id="lieu" class="section-lieu">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <p class="section-label">Comment nous retrouver</p>
+                <h2 class="section-title">Le Lieu de la Réception</h2>
+                <div class="section-divider"><span class="diamond">✝</span></div>
+            </div>
+
+            <div class="lieu-grid">
+                <div class="lieu-info" data-aos="fade-right">
+                    <div class="lieu-card">
+                        <div class="lieu-icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <h3>Résidences Saint Roger Annexe</h3>
+                        <p class="lieu-subtitle">Salle de fêtes</p>
+
+                        <div class="lieu-details">
+                            <div class="lieu-detail-item">
+                                <i class="fas fa-road"></i>
+                                <p>
+                                    Situées à <strong>Fidjrossè</strong>, dans la rue de
+                                    l'École Primaire Publique de Fidjrossè Centre
+                                </p>
+                            </div>
+                            <div class="lieu-detail-item">
+                                <i class="fas fa-directions"></i>
+                                <p>
+                                    <strong>4ième rue à droite</strong> après le
+                                    Commissariat de Fidjrossè
+                                </p>
+                            </div>
+                            <div class="lieu-detail-item">
+                                <i class="fas fa-phone-alt"></i>
+                                <p>
+                                    Contact : <strong>+229 01 96 47 00 98</strong>
+                                </p>
+                            </div>
+                        </div>
+
+                        <a href="https://www.google.com/maps?q=6.358433413674288,2.3773272037505113"
+                           target="_blank" class="btn-map">
+                            <i class="fas fa-map-marker-alt"></i> Ouvrir dans Google Maps
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lieu-map" data-aos="fade-left">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================== -->
+    <!-- GALERIE PHOTOS -->
+    <!-- ======================== -->
+    <section id="galerie" class="section-galerie">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <p class="section-label">Nos Souvenirs</p>
+                <h2 class="section-title">Galerie</h2>
+                <div class="section-divider"><span class="diamond">✝</span></div>
+            </div>
+
+            <div class="galerie-grid">
+                <div class="galerie-item" data-aos="fade-up" data-aos-delay="100">
+                    <img src="images/marie-yann.jpg" alt="Marie-Yann">
+                    <div class="galerie-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <p>Marie-Yann DOSSOU-YOVO</p>
+                    </div>
+                </div>
+                <div class="galerie-item" data-aos="fade-up" data-aos-delay="200">
+                    <img src="images/eglise1.jpg" alt="Église Sainte Bernadette">
+                    <div class="galerie-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <p>Paroisse Sainte Bernadette</p>
+                    </div>
+                </div>
+                <div class="galerie-item" data-aos="fade-up" data-aos-delay="300">
+                    <img src="images/eglise2.jpg" alt="Intérieur de l'église">
+                    <div class="galerie-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <p>Lieu sacré</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightbox-close">&times;</button>
+        <button class="lightbox-prev" id="lightbox-prev"><i class="fas fa-chevron-left"></i></button>
+        <img src="" alt="Photo agrandie" id="lightbox-img">
+        <p class="lightbox-caption" id="lightbox-caption"></p>
+        <button class="lightbox-next" id="lightbox-next"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <!-- ======================== -->
+    <!-- LA COMMUNIANTE -->
+    <!-- ======================== -->
+    <section id="famille" class="section-famille">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <p class="section-label">Avec amour</p>
+                <h2 class="section-title">La Communiante</h2>
+                <div class="section-divider"><span class="diamond">✝</span></div>
+            </div>
+
+            <div class="famille-solo">
+                <div class="famille-card famille-card-main" data-aos="zoom-in">
+                    <div class="famille-photo">
+                        <img src="images/marie-yann.jpg" alt="Marie-Yann DOSSOU-YOVO">
+                        <div class="communion-badge">
+                            <i class="fas fa-cross"></i>
+                        </div>
+                    </div>
+                    <div class="famille-info">
+                        <h4>Marie-Yann DOSSOU-YOVO</h4>
+                        <p class="famille-role">La Communiante</p>
+                        <p class="famille-date">
+                            <i class="fas fa-dove"></i> Première Communion
+                        </p>
+                        <p class="famille-date">
+                            <i class="fas fa-calendar-alt"></i> 11 Juillet 2026
+                        </p>
+                        <p class="famille-quote">
+                            "Que cette journée soit le commencement d'un beau chemin de foi"
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================== -->
+    <!-- RSVP / FORMULAIRE DE RÉPONSE -->
+    <!-- ======================== -->
+    <section id="rsvp" class="section-rsvp">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <p class="section-label">Confirmez votre présence</p>
+                <h2 class="section-title">Réponse à l'invitation</h2>
+                <div class="section-divider"><span class="diamond">✝</span></div>
+                <p class="section-description">
+                    Merci de bien vouloir confirmer votre présence avant le
+                    <strong>1er Juillet 2026</strong>
+                </p>
+            </div>
+
+            <div class="rsvp-grid">
+                <div class="rsvp-form-wrapper" data-aos="fade-right">
+                    <h3 class="form-title">
+                        <i class="fas fa-envelope-open-text"></i>
+                        Formulaire de réponse
+                    </h3>
+
+                    <form id="rsvp-form" class="rsvp-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="rsvp-nom">
+                                    <i class="fas fa-user"></i> Nom & Prénom *
+                                </label>
+                                <input type="text" id="rsvp-nom" name="nom"
+                                       placeholder="Votre nom et prénom..." required>
+                            </div>
+                            <div class="form-group">
+                                <label for="rsvp-tel">
+                                    <i class="fas fa-phone"></i> Téléphone *
+                                </label>
+                                <input type="tel" id="rsvp-tel" name="tel"
+                                       placeholder="+229..." required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="rsvp-email">
+                                    <i class="fas fa-envelope"></i> Email
+                                </label>
+                                <input type="email" id="rsvp-email" name="email"
+                                       placeholder="Votre email...">
+                            </div>
+                            <div class="form-group">
+                                <label for="rsvp-relation">
+                                    <i class="fas fa-heart"></i> Lien avec la famille
+                                </label>
+                                <select id="rsvp-relation" name="relation">
+                                    <option value="famille">Membre de la famille</option>
+                                    <option value="ami">Ami(e) de la famille</option>
+                                    <option value="paroisse">Paroissien(ne)</option>
+                                    <option value="parrain">Parrain / Marraine</option>
+                                    <option value="autre">Autre</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>
+                                <i class="fas fa-check-circle"></i> Votre réponse *
+                            </label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="presence" value="oui" checked>
+                                    <span class="radio-icon">
+                                        <i class="fas fa-check"></i>
+                                    </span>
+                                    Oui, je serai présent(e)
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="presence" value="non">
+                                    <span class="radio-icon">
+                                        <i class="fas fa-times"></i>
+                                    </span>
+                                    Non, empêché(e)
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group" id="personnes-group">
+                            <label for="rsvp-personnes">
+                                <i class="fas fa-users"></i> Nombre de personnes
+                            </label>
+                            <select id="rsvp-personnes" name="personnes">
+                                <option value="1">1 personne</option>
+                                <option value="2">2 personnes</option>
+                                <option value="3">3 personnes</option>
+                                <option value="4">4 personnes</option>
+                                <option value="5">5 personnes</option>
+                                <option value="6+">Plus de 5 personnes</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rsvp-evenement">
+                                <i class="fas fa-calendar-check"></i> Vous participerez à
+                            </label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="messe" checked>
+                                    <span class="checkbox-icon"></span>
+                                    <i class="fas fa-church"></i> La Messe (13h00)
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="reception" checked>
+                                    <span class="checkbox-icon"></span>
+                                    <i class="fas fa-glass-cheers"></i> La Réception (15h00)
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rsvp-message">
+                                <i class="fas fa-comment-dots"></i> Message ou vœux pour Marie-Yann
+                            </label>
+                            <textarea id="rsvp-message" name="message" rows="4"
+                                      placeholder="Un mot, une prière ou un vœu pour Marie-Yann..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit">
+                            <i class="fas fa-paper-plane"></i> Envoyer ma réponse
+                        </button>
+
+                        <p class="form-note">
+                            * Champs obligatoires
+                        </p>
+                    </form>
+                </div>
+
+                <div class="rsvp-contact" data-aos="fade-left">
+                    <div class="rsvp-contact-card">
+                        <h3><i class="fas fa-phone-alt"></i> Contact Direct</h3>
+                        <p>Vous pouvez aussi répondre par téléphone :</p>
+
+                        <div class="contact-method">
+                            <a href="tel:+22901964700​98" class="contact-btn phone">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <strong>Appeler</strong>
+                                    <span>+229 01 96 47 00 98</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="contact-method">
+                            <a href="https://wa.me/22901964700​98" target="_blank"
+                               class="contact-btn whatsapp">
+                                <i class="fab fa-whatsapp"></i>
+                                <div>
+                                    <strong>WhatsApp</strong>
+                                    <span>+229 01 96 47 00 98</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="rsvp-reminder">
+                            <i class="fas fa-bell"></i>
+                            <p>
+                                <strong>Rappel :</strong> Merci de confirmer
+                                avant le <strong>1er Juillet 2026</strong>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Citation biblique -->
+                    <div class="bible-quote">
+                        <i class="fas fa-book-open"></i>
+                        <blockquote>
+                            "Laissez les petits enfants venir à moi,
+                            et ne les en empêchez pas ; car le royaume
+                            de Dieu est pour ceux qui leur ressemblent."
+                        </blockquote>
+                        <cite>— Marc 10:14</cite>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================== -->
+    <!-- MESSAGES DES INVITÉS -->
+    <!-- ======================== -->
+    <section id="messages" class="section-messages">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <p class="section-label">Vos vœux</p>
+                <h2 class="section-title">Messages des Invités</h2>
+                <div class="section-divider"><span class="diamond">✝</span></div>
+            </div>
+
+            <div class="messages-grid" id="messages-grid">
+                <!-- Message exemple 1 -->
+                <div class="message-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="message-quote">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="message-text">
+                        "Félicitations à Marie-Yann pour cette belle étape de foi !
+                        Que le Seigneur la comble de ses grâces. Toute la famille
+                        est fière de toi."
+                    </p>
+                    <div class="message-author">
+                        <div class="author-avatar">TD</div>
+                        <div>
+                            <strong>Tonton David</strong>
+                            <span>Famille</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Message exemple 2 -->
+                <div class="message-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="message-quote">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="message-text">
+                        "Que cette Première Communion soit le début d'un beau
+                        chemin de foi pour Marie-Yann. Que Dieu la bénisse
+                        et la guide toujours."
+                    </p>
+                    <div class="message-author">
+                        <div class="author-avatar">TG</div>
+                        <div>
+                            <strong>Tante Grace</strong>
+                            <span>Famille</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Message exemple 3 -->
+                <div class="message-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="message-quote">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="message-text">
+                        "Quel bonheur de partager ce moment sacré avec la famille
+                        DOSSOU-YOVO. Marie-Yann, que la lumière du Christ
+                        illumine ta vie."
+                    </p>
+                    <div class="message-author">
+                        <div class="author-avatar">PA</div>
+                        <div>
+                            <strong>Père Antoine</strong>
+                            <span>Paroisse</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================== -->
+    <!-- MESSAGE FINAL -->
+    <!-- ======================== -->
+    <section class="section-final">
+        <div class="container">
+            <div class="final-message" data-aos="fade-up">
+                <div class="final-ornament">
+                    <span class="ornament-line"></span>
+                    <i class="fas fa-dove"></i>
+                    <span class="ornament-line"></span>
+                </div>
+
+                <p class="final-text">
+                    Votre présence et vos prières
+                    <br>
+                    seront un <span class="highlight-gold">immense Bonheur</span>.
+                </p>
+
+                <div class="final-ornament">
+                    <span class="ornament-line"></span>
+                    <i class="fas fa-cross"></i>
+                    <span class="ornament-line"></span>
+                </div>
+
+                <p class="final-signature">
+                    Avec toute notre gratitude,<br>
+                    <strong>La Famille DOSSOU-YOVO</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================== -->
+    <!-- FOOTER -->
+    <!-- ======================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="footer-cross">
+                        <i class="fas fa-cross"></i>
+                    </div>
+                    <h3>Première Communion</h3>
+                    <p class="footer-name">Marie-Yann DOSSOU-YOVO</p>
+                    <p class="footer-date">11 Juillet 2026</p>
+                    <p class="footer-devise">"Liés par l'amour"</p>
+                </div>
+
+                <div class="footer-links">
+                    <a href="#accueil">Accueil</a>
+                    <a href="#invitation">Invitation</a>
+                    <a href="#evenement">L'Événement</a>
+                    <a href="#programme">Programme</a>
+                    <a href="#lieu">Le Lieu</a>
+                    <a href="#rsvp">RSVP</a>
+                </div>
+
+                <div class="footer-contact-info">
+                    <p><i class="fas fa-phone-alt"></i> +229 01 96 47 00 98</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Fidjrossè, Cotonou, Bénin</p>
+                    <div class="footer-social">
+                        <a href="https://wa.me/2290196470098" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Famille DOSSOU-YOVO — Tous droits réservés</p>
+                <p>Conçu avec <i class="fas fa-heart" style="color: #c9a84c;"></i> depuis le Bénin</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bouton retour en haut -->
+    <button id="back-to-top" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
